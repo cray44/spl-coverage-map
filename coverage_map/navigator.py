@@ -6,7 +6,7 @@ from .parser import ParsedRule
 
 LAYER_VERSION = "4.5"
 NAVIGATOR_VERSION = "4.9"
-ATTACK_VERSION = "14"
+ATTACK_VERSION = "19"
 
 COVERED_COLOR = "#31a354"   # green
 
