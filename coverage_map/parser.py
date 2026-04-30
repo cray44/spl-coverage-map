@@ -5,7 +5,7 @@ from pathlib import Path
 import yaml
 
 TECHNIQUE_RE = re.compile(r"attack\.(t\d{4}(?:\.\d{3})?)", re.IGNORECASE)
-TACTIC_RE = re.compile(r"attack\.([a-z\-]+)$", re.IGNORECASE)
+TACTIC_RE = re.compile(r"attack\.([a-z_\-]+)$", re.IGNORECASE)
 
 TACTIC_SLUGS = {
     "reconnaissance", "resource-development", "initial-access", "execution",
@@ -44,8 +44,10 @@ def parse_rule_file(path: Path) -> ParsedRule | None:
             techniques.append(tech_match.group(1).upper())
             continue
         tactic_match = TACTIC_RE.match(tag)
-        if tactic_match and tactic_match.group(1).lower() in TACTIC_SLUGS:
-            tactics.append(tactic_match.group(1).lower())
+        if tactic_match:
+            slug = tactic_match.group(1).lower().replace("_", "-")
+            if slug in TACTIC_SLUGS:
+                tactics.append(slug)
 
     return ParsedRule(
         title=raw.get("title", path.stem),

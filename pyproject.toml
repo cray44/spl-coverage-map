@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spl-coverage-map"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "pyyaml>=6.0",
+    "click>=8.1.0",
+]
+
+[project.scripts]
+coverage-map = "coverage_map.__main__:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["coverage_map*"]
