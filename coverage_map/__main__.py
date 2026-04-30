@@ -3,7 +3,7 @@ from pathlib import Path
 
 import click
 
-from .parser import parse_rules_directory
+from .parser import parse_rules_directory, parse_markdown_rules_directory
 from .navigator import build_layer, render_summary, write_layer
 
 
@@ -20,9 +20,16 @@ def cli():
               help="Layer name shown in ATT&CK Navigator")
 @click.option("--summary", is_flag=True, default=False,
               help="Print a coverage summary to stdout")
-def generate(rules_dir: Path, output: Path, name: str, summary: bool):
-    """Generate an ATT&CK Navigator layer from a directory of Sigma rules."""
-    rules = parse_rules_directory(rules_dir)
+@click.option("--format", "-f", "fmt",
+              type=click.Choice(["sigma", "markdown"], case_sensitive=False),
+              default="sigma",
+              help="Input rule format: 'sigma' (default, .yml) or 'markdown' (frontmatter .md)")
+def generate(rules_dir: Path, output: Path, name: str, summary: bool, fmt: str):
+    """Generate an ATT&CK Navigator layer from a directory of Sigma or Markdown rules."""
+    if fmt == "markdown":
+        rules = parse_markdown_rules_directory(rules_dir)
+    else:
+        rules = parse_rules_directory(rules_dir)
 
     if not rules:
         click.echo("No rules with ATT&CK technique tags found.", err=True)
