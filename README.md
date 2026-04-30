@@ -1,6 +1,6 @@
 # spl-coverage-map
 
-Generates [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) JSON coverage layers from a directory of Sigma rules. Drop the output into Navigator to visualize which techniques you have detections for and where your gaps are.
+Generates [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) JSON coverage layers from a directory of Sigma rules or Markdown detection writeups. Drop the output into Navigator to visualize which techniques you have detections for and where your gaps are.
 
 Pairs with [sigma-to-spl](https://github.com/cray44/sigma-to-spl) — use the same `rules/` directory as input for both.
 
@@ -12,6 +12,26 @@ Pairs with [sigma-to-spl](https://github.com/cray44/sigma-to-spl) — use the sa
 ```bash
 python -m coverage_map generate ../sigma-to-spl/rules/ --output output/coverage.json
 ```
+
+**Generate a layer from Markdown detection writeups (`--format markdown`):**
+```bash
+python -m coverage_map generate Detection-Rules/ --format markdown --output coverage.json --summary
+```
+
+Reads MITRE data from YAML frontmatter fields in `.md` files:
+```yaml
+---
+id: CT-002
+name: Non-SSO Console Login Without MFA
+status: active
+mitre_technique: T1078.004
+mitre_tactic: Initial Access / Defense Evasion
+---
+```
+
+- `mitre_technique` — single ID, comma-separated list, or `ID — Description` (description stripped)
+- `mitre_tactic` — human-readable string, slash- or comma-separated for multiple
+- Files with `mitre_technique: N/A` or no `mitre_technique` field are silently skipped
 
 **Open in ATT&CK Navigator:**
 1. Go to [mitre-attack.github.io/attack-navigator](https://mitre-attack.github.io/attack-navigator/)
