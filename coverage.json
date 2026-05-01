@@ -96,16 +96,6 @@
       "showSubtechniques": false
     },
     {
-      "techniqueID": "T1048",
-      "score": 1,
-      "color": "#31a354",
-      "comment": "DNS Tunneling via High-Entropy Subdomains",
-      "enabled": true,
-      "metadata": [],
-      "links": [],
-      "showSubtechniques": false
-    },
-    {
       "techniqueID": "T1021.002",
       "score": 1,
       "color": "#31a354",
