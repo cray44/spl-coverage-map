@@ -1,7 +1,7 @@
 {
-  "name": "Detection Coverage",
+  "name": "cray44 Detection Coverage",
   "versions": {
-    "attack": "14",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -27,9 +27,9 @@
   "techniques": [
     {
       "techniqueID": "T1078.004",
-      "score": 2,
+      "score": 3,
       "color": "#31a354",
-      "comment": "AWS IAM Privilege Escalation via Policy Attachment\nOAuth Device Code Phishing - Suspicious Device Authorization Flow",
+      "comment": "AWS IAM Privilege Escalation via Policy Attachment\nSuccessful Device Code Authentication from Non-Compliant Device\nOAuth Device Code Phishing - Suspicious Device Authorization Flow",
       "enabled": true,
       "metadata": [],
       "links": [],
@@ -47,9 +47,9 @@
     },
     {
       "techniqueID": "T1528",
-      "score": 2,
+      "score": 3,
       "color": "#31a354",
-      "comment": "Azure Illicit OAuth Application Consent Grant\nOAuth Device Code Phishing - Suspicious Device Authorization Flow",
+      "comment": "Azure Illicit OAuth Application Consent Grant\nSuccessful Device Code Authentication from Non-Compliant Device\nOAuth Device Code Phishing - Suspicious Device Authorization Flow",
       "enabled": true,
       "metadata": [],
       "links": [],
@@ -77,9 +77,9 @@
     },
     {
       "techniqueID": "T1566.002",
-      "score": 1,
+      "score": 2,
       "color": "#31a354",
-      "comment": "OAuth Device Code Phishing - Suspicious Device Authorization Flow",
+      "comment": "Successful Device Code Authentication from Non-Compliant Device\nOAuth Device Code Phishing - Suspicious Device Authorization Flow",
       "enabled": true,
       "metadata": [],
       "links": [],
@@ -162,7 +162,7 @@
       "#31a354"
     ],
     "minValue": 0,
-    "maxValue": 2
+    "maxValue": 3
   },
   "legendItems": [
     {
