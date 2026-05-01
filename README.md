@@ -1,10 +1,12 @@
 # spl-coverage-map
 
+![CI](https://github.com/cray44/spl-coverage-map/actions/workflows/generate.yml/badge.svg)
+
 Generates [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) JSON coverage layers from a directory of Sigma rules or Markdown detection writeups.
 
 The practical use case: you have a library of Sigma rules (or ADS-format writeups with MITRE frontmatter) and want to know at a glance which techniques you're covering, where the gaps are, and which tactics have zero coverage. Drop the JSON output into Navigator and you have a visual coverage map.
 
-Pairs with [sigma-to-spl](https://github.com/cray44/sigma-to-spl) — the same `rules/` directory is the input for both.
+Pairs with [sigma-to-spl](https://github.com/cray44/sigma-to-spl) — the same `rules/` directory is the input for both. Part of the [detection-workbench](https://github.com/cray44/detection-workbench) ecosystem.
 
 ---
 
@@ -56,6 +58,12 @@ Tactics with no coverage:
 ```
 
 **Open in ATT&CK Navigator:**
+
+The committed `coverage.json` in this repo loads directly in Navigator — no local install needed:
+
+[**→ Open coverage layer in ATT&CK Navigator**](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/cray44/spl-coverage-map/main/coverage.json)
+
+Or load a locally generated file:
 1. Go to [mitre-attack.github.io/attack-navigator](https://mitre-attack.github.io/attack-navigator/)
 2. Open Existing Layer → Upload from local
 3. Select `output/coverage.json`
