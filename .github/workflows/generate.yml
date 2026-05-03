@@ -25,13 +25,3 @@ jobs:
       - name: Run tests
         run: python -m pytest tests/ -v
 
-      - name: Generate coverage layer
-        run: |
-          mkdir -p output
-          python -m coverage_map generate rules/ --output output/coverage.json --summary || true
-
-      - name: Upload coverage layer
-        uses: actions/upload-artifact@v4
-        with:
-          name: attack-navigator-layer
-          path: output/coverage.json
