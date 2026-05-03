@@ -59,7 +59,7 @@ Tactics with no coverage:
 
 **Open in ATT&CK Navigator:**
 
-The committed `coverage.json` in this repo loads directly in Navigator — no local install needed:
+The committed `coverage.json` in this repo is auto-regenerated whenever rules change in [sigma-to-spl](https://github.com/cray44/sigma-to-spl) — no manual update needed. It loads directly in Navigator:
 
 [**→ Open coverage layer in ATT&CK Navigator**](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/cray44/spl-coverage-map/main/coverage.json)
 
